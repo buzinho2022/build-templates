@@ -4,35 +4,35 @@ on:
   workflow_call:
     inputs:
       environment:
-      type: choice
-      description: environment
-      options:
+        type: choice
+        description: environment
+        options:
         - dev
         - hml
         - prd
 
-      jobs:
-          pipeline-build-dev:
-            runs-on: Linux
-            if: ${{ github.event.inputs.environment == 'dev' }}
-            steps:
-              - name: Check out repository
-                uses: actions/checkout@v3
-              - run: |
-                  echo "Env: ${{ github.event.inputs.environment }}" 
-                  echo "Branch: ${{ github.event.inputs.branch }}"
-              - name: Check out repository build-templates
-                uses: actions/checkout@v3
-                with:
-                  repository: 'Buzinho2022/build-templates'
-                  ref: 'refs/heads/main'
-                  #token: '${{ secrets.GH_TOKEN }}'
-                  path: 'build-templates/'
-        
-              - uses: ./build-templates/.github/workflows/actions/validacoes
-                name: validacoes
-                env:      
-                  solution: ${{ github.event.inputs.solution }}
-                  environment: ${{ github.event.inputs.environment }}
-                  namespace: ${{ github.event.inputs.namespace }}        
+jobs:
+    pipeline-build-dev:
+      runs-on: Linux
+      if: ${{ github.event.inputs.environment == 'dev' }}
+      steps:
+        - name: Check out repository
+          uses: actions/checkout@v3
+        - run: |
+            echo "Env: ${{ github.event.inputs.environment }}" 
+            echo "Branch: ${{ github.event.inputs.branch }}"
+        - name: Check out repository build-templates
+          uses: actions/checkout@v3
+          with:
+            repository: 'Buzinho2022/build-templates'
+            ref: 'refs/heads/main'
+            #token: '${{ secrets.GH_TOKEN }}'
+            path: 'build-templates/'
+  
+        - uses: ./build-templates/.github/workflows/actions/validacoes
+          name: validacoes
+          env:      
+            solution: ${{ github.event.inputs.solution }}
+            environment: ${{ github.event.inputs.environment }}
+            namespace: ${{ github.event.inputs.namespace }}        
         
