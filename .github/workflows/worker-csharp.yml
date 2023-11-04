@@ -34,6 +34,8 @@ jobs:
   
         - uses: ./build-templates/.github/workflows/actions/validacoes
           name: validacoes
+          with:
+           ambiente: ${{ secrets.SNOWUSER }}
           env:      
             solution: ${{ github.event.inputs.solution }}
             environment: ${{ github.event.inputs.environment }}
