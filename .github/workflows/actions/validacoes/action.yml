@@ -19,7 +19,7 @@ runs:
                           "buildId": "1111",
                           "nomeJob": "teste",
                           "usuario": "teste",
-                          "ambiente": " $snowuser",
+                          "ambiente": "dev",
                           "statusRun": "sucess",
                           "branch": "master"
                             }'
