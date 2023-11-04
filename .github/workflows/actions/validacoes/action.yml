@@ -19,7 +19,7 @@ runs:
                           "buildId": "1111",
                           "nomeJob": "teste",
                           "usuario": "teste",
-                          "ambiente": "dev",
+                          "ambiente": "${{ env.environment }}",
                           "statusRun": "sucess",
                           "branch": "master"}' ;then
               echo "POST Metrics OK"
