@@ -11,7 +11,7 @@ runs:
           echo "Buildnumber" # 
           
           echo "POST API"
-          curl -k -X 'POST' \
+          if [ curl -k -X 'POST' \
                     'https://192.168.0.92:32768/api/Evento' \
                     -H 'accept: text/plain' \
                     -H 'Content-Type: application/json' \
@@ -22,7 +22,13 @@ runs:
                           "ambiente": "dev",
                           "statusRun": "sucess",
                           "branch": "master"
-                            }'
-                  // variavel nome do repositorio
-                  echo "NOME REPOSITORIO"
+                            }' ];then
+              echo "POST Metrics OK"
+              exit 0
+           fi
+           else
+             echo -e "\033[32m\033[1m Erro Post Metrics"
+             exit 1
+           fi               
+
 
