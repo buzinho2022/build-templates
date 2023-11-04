@@ -12,9 +12,7 @@ on:
       namespace:
         required: true
         type: string
-      docker_image:
-        required: true
-        type: string
+
 
 jobs:
     pipeline-build-dev:
