@@ -12,7 +12,7 @@ runs:
           
           echo "POST API"
           curl -k -X 'POST' \
-                    'https://192.168.0.91:32768/api/Evento' \
+                    'https://192.168.0.92:32768/api/Evento' \
                     -H 'accept: text/plain' \
                     -H 'Content-Type: application/json' \
                     -d '{
