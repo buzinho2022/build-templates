@@ -20,7 +20,7 @@ on:
                       -H 'accept: text/plain' \
                       -H 'Content-Type: application/json' \
                       -d '{
-                            "buildId": "${{github.run_number}}",
+                            "buildId": "1111",
                             "nomeJob": "${{github.repository}}",
                             "usuario": "${{ github.actor }}",
                             "ambiente": " $snowuser",
