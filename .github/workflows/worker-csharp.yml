@@ -3,13 +3,18 @@ on:
   workflow_dispatch:
   workflow_call:
     inputs:
+      solution:
+        required: true
+        type: string
       environment:
-        type: choice
-        description: environment
-        options:
-        - dev
-        - hml
-        - prd
+        required: true
+        type: string
+      namespace:
+        required: true
+        type: string
+      docker_image:
+        required: true
+        type: string
 
 jobs:
     pipeline-build-dev:
