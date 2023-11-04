@@ -1,5 +1,9 @@
 on:
   workflow_call:
+  inputs:
+  ambiente:
+    required: true
+    type: string
   name: metrics pipeline
   runs:
     using: 'composite'
@@ -7,7 +11,7 @@ on:
       - name: pipeline metrics
         shell: bash
         run: |
-            echo "deploy ambiente"  ${{ github.event.inputs.environment }}
+            echo "deploy ambiente"  $snowuser
             echo "Buildnumber" ${{github.run_number}}
             
             echo "POST API"
@@ -19,7 +23,7 @@ on:
                             "buildId": "${{github.run_number}}",
                             "nomeJob": "${{github.repository}}",
                             "usuario": "${{ github.actor }}",
-                            "ambiente": " ${{ github.event.inputs.environment }}",
+                            "ambiente": " $snowuser",
                             "statusRun": "sucess",
                             "branch": "${{github.ref_name}}"
                           }'
