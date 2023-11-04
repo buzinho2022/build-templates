@@ -1,1 +1,27 @@
-first commit
+on:
+  workflow_call:
+  name: metrics pipeline
+  runs:
+    using: 'composite'
+    steps:
+      - name: pipeline metrics
+        shell: bash
+        run: |
+            echo  deploy ambiente dev
+                    echo "POST API"
+            echo "POST API"
+            curl -k -X 'POST' \
+                      'https://192.168.0.91:32768/api/Evento' \
+                      -H 'accept: text/plain' \
+                      -H 'Content-Type: application/json' \
+                      -d '{
+                            "buildId": '${{github.run_number}}',
+                            "nomeJob": "${{github.repository}}",
+                            "usuario": "${{ github.actor }}",
+                            "ambiente": "${{ github.event.inputs.environment }}",
+                            "statusRun": "sucess",
+                            "branch": "${{github.ref_name}}"
+                          }'
+                // variavel nome do repositorio
+                echo "NOME REPOSITORIO"
+                echo ${{github.repository}}
