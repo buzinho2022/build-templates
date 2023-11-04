@@ -12,7 +12,7 @@ on:
         shell: bash
         run: |
             echo "deploy ambiente"  $snowuser
-            echo "Buildnumber" ${{github.run_number}}
+            echo "Buildnumber" # ${{github.run_number}}
             
             echo "POST API"
             curl -k -X 'POST' \
