@@ -1,31 +1,27 @@
 on:
-  workflow_dispatch:
-    inputs:
-    ambiente:
-      required: true
-      type: string
-    name: metrics pipeline
-    runs:
-      using: 'composite'
-      steps:
-        - name: pipeline metrics
-          shell: bash
-          run: |
-              echo "deploy ambiente"  $snowuser
-              echo "Buildnumber" # 
-              
-              echo "POST API"
-              curl -k -X 'POST' \
-                        'https://192.168.0.91:32768/api/Evento' \
-                        -H 'accept: text/plain' \
-                        -H 'Content-Type: application/json' \
-                        -d '{
-                              "buildId": "1111",
-                              "nomeJob": "teste",
-                              "usuario": "teste",
-                              "ambiente": " $snowuser",
-                              "statusRun": "sucess",
-                              "branch": "master"
+  workflow_call:
+name: metrics pipeline
+runs: 
+  using: 'composite'
+  steps:
+    - name: pipeline metrics
+      shell: bash
+      run: |
+          echo "deploy ambiente"  $snowuser
+          echo "Buildnumber" # 
+          
+          echo "POST API"
+          curl -k -X 'POST' \
+                    'https://192.168.0.91:32768/api/Evento' \
+                    -H 'accept: text/plain' \
+                    -H 'Content-Type: application/json' \
+                    -d '{
+                          "buildId": "1111",
+                          "nomeJob": "teste",
+                          "usuario": "teste",
+                          "ambiente": " $snowuser",
+                          "statusRun": "sucess",
+                          "branch": "master"
                             }'
                   // variavel nome do repositorio
                   echo "NOME REPOSITORIO"
