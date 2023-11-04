@@ -7,7 +7,7 @@ on:
       - name: pipeline metrics
         shell: bash
         run: |
-            echo "deploy ambiente" ${{ env.environment }}
+            echo "deploy ambiente"  ${{ github.event.inputs.environment }}
             echo "Buildnumber" ${{github.run_number}}
             
             echo "POST API"
@@ -19,7 +19,7 @@ on:
                             "buildId": "${{github.run_number}}",
                             "nomeJob": "${{github.repository}}",
                             "usuario": "${{ github.actor }}",
-                            "ambiente": "${{ env.environment }}",
+                            "ambiente": " ${{ github.event.inputs.environment }}",
                             "statusRun": "sucess",
                             "branch": "${{github.ref_name}}"
                           }'
