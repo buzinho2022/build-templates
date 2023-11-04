@@ -9,7 +9,7 @@ runs:
       run: |
           echo "deploy ambiente"  $snowuser
           echo "Buildnumber" # 
-          echo "ambiente do deploy {{ env.environment}}"
+          echo "ambiente do deploy ${{ env.environment }}"
           
           
           echo "POST API"
