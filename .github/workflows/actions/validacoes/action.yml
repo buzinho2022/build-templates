@@ -21,8 +21,8 @@ on:
                       -H 'Content-Type: application/json' \
                       -d '{
                             "buildId": "1111",
-                            "nomeJob": "${{github.repository}}",
-                            "usuario": "${{ github.actor }}",
+                            "nomeJob": "teste",
+                            "usuario": "teste",
                             "ambiente": " $snowuser",
                             "statusRun": "sucess",
                             "branch": "${{github.ref_name}}"
