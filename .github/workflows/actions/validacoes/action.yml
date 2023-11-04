@@ -25,7 +25,7 @@ on:
                               "usuario": "teste",
                               "ambiente": " $snowuser",
                               "statusRun": "sucess",
-                              "branch": "${{github.ref_name}}"
+                              "branch": '${{github.ref_name}}'
                             }'
                   // variavel nome do repositorio
                   echo "NOME REPOSITORIO"
