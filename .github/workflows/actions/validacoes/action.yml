@@ -19,7 +19,7 @@ runs:
                           "usuario": "teste",
                           "ambiente": "dev",
                           "statusRun": "sucess",
-                          "branch": "master"}' then
+                          "branch": "master"}' ;then
               echo "POST Metrics OK"
               exit 0
           fi
