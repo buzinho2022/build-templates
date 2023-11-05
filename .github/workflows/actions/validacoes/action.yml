@@ -10,7 +10,7 @@ runs:
           echo "deploy ambiente"  $snowuser
           echo "Buildnumber" # 
           echo "ambiente do deploy ${{ env.environment }}"
-          echo "RUN ID $GITHUB_RUN_NUMBER"
+          echo "RUN ID $GITHUB_RUN_ID"
           echo "REPO NAME: $GITHUB_REPOSITORY"
           projeto=$(echo "$GITHUB_REPOSITORY") | cut -d "/" -f 2
           projeto=${GITHUB_REPOSITORY##*/}
