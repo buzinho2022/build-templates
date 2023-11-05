@@ -12,18 +12,18 @@ runs:
           echo "ambiente do deploy ${{ env.environment }}"
           echo "RUN ID $GITHUB_RUN_NUMBER"
           echo "REPO NAME: $GITHUB_REPOSITORY"
-          
+          projeto=$(echo $GITHUB_REPOSITORY) | cut -d "/" -f 2
           
           echo "POST API"
           if curl -k -X 'POST' \
                     'https://192.168.0.92:32768/api/Evento' -H 'accept: text/plain' -H 'Content-Type: application/json' \
                     -d '{
-                          "buildId": "1111",
-                          "nomeJob": "teste",
+                          "buildId": "$GITHUB_RUN_NUMBER",
+                          "nomeJob": "$projeto",
                           "usuario": "teste",
                           "ambiente": "${{ env.environment }}",
                           "statusRun": "sucess",
-                          "branch": "master"}' ;then
+                          "branch": "$GITHUB_REF_NAME"}' ;then
               echo "POST Metrics OK"
               exit 0
           fi
