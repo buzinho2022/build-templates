@@ -3,13 +3,7 @@ on:
   workflow_dispatch:
   workflow_call:
     inputs:
-      solution:
-        required: true
-        type: string
       environment:
-        required: true
-        type: string
-      namespace:
         required: true
         type: string
 
