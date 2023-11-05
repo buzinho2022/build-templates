@@ -18,6 +18,7 @@ runs:
           echo "Projeto: $projeto"
           echo "Branch: $GITHUB_REF_NAME"
           echo "Status: $GITHUB_RUN_STATUS"
+          echo "Usuario: $GITHUB_TRIGGERING_ACTOR"
  
           
           echo "POST API"
@@ -26,7 +27,7 @@ runs:
                     -d '{
                           "buildId": "'$GITHUB_RUN_ID'",
                           "nomeJob": "'$projeto'",
-                          "usuario": "teste",
+                          "usuario": "$GITHUB_TRIGGERING_ACTOR",
                           "ambiente": "${{ env.environment }}",
                           "statusRun": "sucess",
                           "branch": "'$GITHUB_REF_NAME'"}' ;then
