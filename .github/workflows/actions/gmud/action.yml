@@ -23,7 +23,6 @@ runs:
           if curl - s - k - X 'GET'   'https://192.168.0.92:32768/api/Changes/ValidaChange?id=1' - H 'accept: text/plain' | grep - q 'GMUD autorizada'; then
               echo "POST Metrics OK"
               exit 0
-          fi
            else
              echo -e "\033[32m\033[1m GMUD não autorizada \033[0m"
              exit 1
