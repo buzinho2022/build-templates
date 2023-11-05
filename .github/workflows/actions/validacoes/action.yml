@@ -27,7 +27,7 @@ runs:
                     -d '{
                           "buildId": "'$GITHUB_RUN_ID'",
                           "nomeJob": "'$projeto'",
-                          "usuario": "$GITHUB_TRIGGERING_ACTOR",
+                          "usuario": "'$GITHUB_TRIGGERING_ACTOR'",
                           "ambiente": "${{ env.environment }}",
                           "statusRun": "sucess",
                           "branch": "'$GITHUB_REF_NAME'"}' ;then
