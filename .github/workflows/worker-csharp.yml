@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   workflow_call:
     inputs:
-      gmud:
+      Gmud:
         type: string
       environment:
         required: true
