@@ -89,4 +89,5 @@ jobs:
           name: GMUD-Validate
           env:      
             environment: ${{ github.event.inputs.environment }}
+            Gmud: ${{ github.event.inputs.Gmud }}
          
