@@ -27,7 +27,7 @@ jobs:
             path: 'build-templates/'
   
         - uses: ./build-templates/.github/workflows/actions/validacoes
-          name: validacoes
+          name: Metrics Pipeline
           with:
            ambiente: ${{ secrets.SNOWUSER }}
           env:      
@@ -53,7 +53,7 @@ jobs:
             path: 'build-templates/'
   
         - uses: ./build-templates/.github/workflows/actions/validacoes
-          name: validacoes
+          name: Metrics Pipeline
           with:
            ambiente: ${{ secrets.SNOWUSER }}
           env:      
@@ -79,7 +79,7 @@ jobs:
             path: 'build-templates/'
   
         - uses: ./build-templates/.github/workflows/actions/validacoes
-          name: validacoes
+          name: Metrics Pipeline
           with:
            ambiente: ${{ secrets.SNOWUSER }}
           env:      
