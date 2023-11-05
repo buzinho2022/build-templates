@@ -8,6 +8,7 @@ runs:
       shell: bash
       run: |
           echo "Ambiente do deploy ${{ env.environment }}"
+          echo -e "\033[32m\033[1m GMUD: ${{ env.Gmud }}"
           echo "RUN ID $GITHUB_RUN_ID"
           echo "REPO NAME: $GITHUB_REPOSITORY"
           projeto=$(echo "$GITHUB_REPOSITORY") | cut -d "/" -f 2
@@ -19,7 +20,7 @@ runs:
           echo "Usuario: $GITHUB_TRIGGERING_ACTOR"
  
           
-          if curl -k -X 'GET' 'https://192.168.0.92:32768/api/Changes/ValidaChange?id=1' -H 'accept: text/plain' | grep -q 'GMUD autorizada'; then
+          if curl -k -X 'GET' 'https://192.168.0.92:32768/api/Changes/ValidaChange?id=${{ env.Gmud }}' -H 'accept: text/plain' | grep -q 'GMUD autorizada'; then
             echo -e "\033[32m\033[1m Change autorizada"
             exit 0 
           else
