@@ -39,5 +39,57 @@ jobs:
           env:      
             solution: ${{ github.event.inputs.solution }}
             environment: ${{ github.event.inputs.environment }}
-            namespace: ${{ github.event.inputs.namespace }}        
+            namespace: ${{ github.event.inputs.namespace }}      
+
+    pipeline-build-hml:
+      runs-on: Linux
+      if: ${{ github.event.inputs.environment == 'hml' }}
+      steps:
+        - name: Check out repository
+          uses: actions/checkout@v3
+        - run: |
+            echo "Env: ${{ github.event.inputs.environment }}" 
+            echo "Branch: ${{ github.event.inputs.branch }}"
+        - name: Check out repository build-templates
+          uses: actions/checkout@v3
+          with:
+            repository: 'Buzinho2022/build-templates'
+            ref: 'refs/heads/main'
+            #token: '${{ secrets.GH_TOKEN }}'
+            path: 'build-templates/'
+  
+        - uses: ./build-templates/.github/workflows/actions/validacoes
+          name: validacoes
+          with:
+           ambiente: ${{ secrets.SNOWUSER }}
+          env:      
+            solution: ${{ github.event.inputs.solution }}
+            environment: ${{ github.event.inputs.environment }}
+            namespace: ${{ github.event.inputs.namespace }}              
+
+    pipeline-build-prd:
+      runs-on: Linux
+      if: ${{ github.event.inputs.environment == 'prd' }}
+      steps:
+        - name: Check out repository
+          uses: actions/checkout@v3
+        - run: |
+            echo "Env: ${{ github.event.inputs.environment }}" 
+            echo "Branch: ${{ github.event.inputs.branch }}"
+        - name: Check out repository build-templates
+          uses: actions/checkout@v3
+          with:
+            repository: 'Buzinho2022/build-templates'
+            ref: 'refs/heads/main'
+            #token: '${{ secrets.GH_TOKEN }}'
+            path: 'build-templates/'
+  
+        - uses: ./build-templates/.github/workflows/actions/validacoes
+          name: validacoes
+          with:
+           ambiente: ${{ secrets.SNOWUSER }}
+          env:      
+            solution: ${{ github.event.inputs.solution }}
+            environment: ${{ github.event.inputs.environment }}
+            namespace: ${{ github.event.inputs.namespace }}                  
         
