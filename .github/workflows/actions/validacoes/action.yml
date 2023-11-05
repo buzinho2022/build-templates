@@ -12,7 +12,7 @@ runs:
           echo "ambiente do deploy ${{ env.environment }}"
           echo "RUN ID $GITHUB_RUN_NUMBER"
           echo "REPO NAME: $GITHUB_REPOSITORY"
-          projeto=$(echo $GITHUB_REPOSITORY) | cut -d "/" -f 2
+          projeto=$(echo "$GITHUB_REPOSITORY") | cut -d "/" -f 2
 
           echo "Projeto: $projeto"
           echo "Branch: $GITHUB_REF_NAME"
