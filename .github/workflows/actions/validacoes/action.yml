@@ -13,17 +13,22 @@ runs:
           echo "RUN ID $GITHUB_RUN_NUMBER"
           echo "REPO NAME: $GITHUB_REPOSITORY"
           projeto=$(echo $GITHUB_REPOSITORY) | cut -d "/" -f 2
+
+          echo "Projeto: $projeto"
+          echo "Branch: $GITHUB_REF_NAME"
+          echo "Status: $GITHUB_RUN_STATUS"
+ 
           
           echo "POST API"
           if curl -k -X 'POST' \
                     'https://192.168.0.92:32768/api/Evento' -H 'accept: text/plain' -H 'Content-Type: application/json' \
                     -d '{
-                          "buildId": '$GITHUB_RUN_NUMBER',
-                          "nomeJob": "$projeto",
+                          "buildId": "'$GITHUB_RUN_NUMBER'",
+                          "nomeJob": "'$projeto'",
                           "usuario": "teste",
                           "ambiente": "${{ env.environment }}",
                           "statusRun": "sucess",
-                          "branch": "$GITHUB_REF_NAME"}' ;then
+                          "branch": "'$GITHUB_REF_NAME'"}' ;then
               echo "POST Metrics OK"
               exit 0
           fi
