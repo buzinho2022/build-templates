@@ -20,17 +20,9 @@ runs:
  
           
           if curl -k -X 'GET' 'https://192.168.0.92:32768/api/Changes/ValidaChange?id=1' -H 'accept: text/plain' | grep -q 'GMUD autorizada'; then
-            echo "Change autorizada"
+            echo -e "\033[32m\033[1m Change autorizada"
             exit 0 
           else
-            echo "Change nao autorizada"
+            echo -e "\033[32m\033[1m Change nao autorizada"
             exit 1
-          fi
-          
-          if $? -eq 0; then
-            echo "Change autorizada"
-            exit 0 
-          else
-            echo "Change nao autorizada"
-            exit 1
-          fi             
+          fi      
