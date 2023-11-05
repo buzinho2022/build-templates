@@ -10,6 +10,8 @@ runs:
           echo "deploy ambiente"  $snowuser
           echo "Buildnumber" # 
           echo "ambiente do deploy ${{ env.environment }}"
+          echo "RUN ID $GITHUB_RUN_NUMBER"
+          echo "REPO NAME: $GITHUB_REPOSITORY"
           
           
           echo "POST API"
