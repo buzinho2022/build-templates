@@ -25,6 +25,7 @@ runs:
                     -d '{
                           "buildId": "'$GITHUB_RUN_ID'",
                           "nomeJob": "'$projeto'",
+                          "gmud": "${{ env.Gmud }}",
                           "usuario": "'$GITHUB_TRIGGERING_ACTOR'",
                           "ambiente": "${{ env.environment }}",
                           "statusRun": "running",
