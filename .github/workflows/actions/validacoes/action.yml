@@ -28,8 +28,8 @@ runs:
                           "usuario": "'$GITHUB_TRIGGERING_ACTOR'",
                           "ambiente": "${{ env.environment }}",
                           "statusRun": "running",
-                          "gmud": "${{ env.Gmud }}",
-                          "branch": "'$GITHUB_REF_NAME'"}' ;then
+                          "branch": "'$GITHUB_REF_NAME'"},
+                          "gmud": "${{ env.Gmud }}"' ;then
               echo "POST Metrics OK"
               sleep 5
               exit 0
