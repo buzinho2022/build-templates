@@ -25,10 +25,10 @@ runs:
                     -d '{
                           "buildId": "'$GITHUB_RUN_ID'",
                           "nomeJob": "'$projeto'",
-                          "gmud": "${{ env.Gmud }}",
                           "usuario": "'$GITHUB_TRIGGERING_ACTOR'",
                           "ambiente": "${{ env.environment }}",
                           "statusRun": "running",
+                          "gmud": "${{ env.Gmud }}",
                           "branch": "'$GITHUB_REF_NAME'"}' ;then
               echo "POST Metrics OK"
               sleep 5
