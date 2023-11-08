@@ -27,7 +27,7 @@ runs:
                           "nomeJob": "'$projeto'",
                           "usuario": "'$GITHUB_TRIGGERING_ACTOR'",
                           "ambiente": "${{ env.environment }}",
-                          "statusRun": "sucess",
+                          "statusRun": "running",
                           "branch": "'$GITHUB_REF_NAME'"}' ;then
               echo "POST Metrics OK"
               exit 0
