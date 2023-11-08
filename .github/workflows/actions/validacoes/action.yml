@@ -30,7 +30,7 @@ runs:
                           "statusRun": "running",
                           "branch": "'$GITHUB_REF_NAME'"}' ;then
               echo "POST Metrics OK"
-              sleep(2000)
+              sleep 5
              
           fi
            else
