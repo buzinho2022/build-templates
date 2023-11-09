@@ -20,7 +20,7 @@ runs:
           echo "Usuario: $GITHUB_TRIGGERING_ACTOR"
  
           
-          if curl -k -X 'GET' 'https://192.168.0.92:32770/api/Changes/ValidaChange?id=${{ env.Gmud }}' -H 'accept: text/plain' | grep -q 'GMUD autorizada'; then
+          if curl -k -X 'GET' 'https://192.168.0.92:32768/api/Changes/ValidaChange?id=${{ env.Gmud }}' -H 'accept: text/plain' | grep -q 'GMUD autorizada'; then
             echo -e "\033[32m\033[1m Change autorizada"
             exit 0 
           else
