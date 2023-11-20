@@ -8,7 +8,9 @@ on:
       environment:
         required: true
         type: string
-
+      namespace:
+        required: true
+        type: string  
 
 jobs:
     pipeline-build-dev:
