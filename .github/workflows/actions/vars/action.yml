@@ -14,6 +14,7 @@ runs:
         export usuario=${GITHUB_TRIGGERING_ACTOR} >> $GITHUB_ENV
 
         echo "Nome: $reponame"
+        echo "Nome: ${{env.reponame}}"
         echo "Projeto: $projeto"
         echo "Ambiente: $ambiente"
         echo "Namespace: $namespace"
