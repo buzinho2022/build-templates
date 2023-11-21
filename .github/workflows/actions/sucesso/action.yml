@@ -13,6 +13,9 @@ runs:
           projeto=$(echo "$GITHUB_REPOSITORY") | cut -d "/" -f 2
           projeto=${GITHUB_REPOSITORY##*/}
           echo "Nome repo: ${{env.reponame}}"
+          echo "Nome repo: ${{reponame}}"
+          echo "Nome repo: $reponame"
+          echo "Nome repo: ${env.reponame}"
 
           echo "Projeto: $projeto"
           echo "Branch: $GITHUB_REF_NAME"
